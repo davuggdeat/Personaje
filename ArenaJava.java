@@ -32,7 +32,7 @@ public class ArenaJava {
             turno++;
         }
 
-        System.out.println("\n🏆 GANADOR: " + 
+        System.out.println(" GANADOR: " + 
             (ninja.estaVivo() ? ninja.getNombre() : guerrero.getNombre()));
     }
 }
