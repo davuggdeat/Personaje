@@ -2,37 +2,46 @@ package Personaje;
 
 public class ArenaJava {
 
-    public static void main(String[] args) {
-        
-        Ninja ninja = new Ninja("Shirai Ryu");
-        Guerrero guerrero = new Guerrero("Thor");
+     Ninja ninja = new Ninja("Shirai Ryu");
+	        Guerrero guerrero = new Guerrero("Thor");
 
-        System.out.println("¡COMIENZA LA BATALLA EN LA ARENA JAVA!\n");
-        
-        ninja.mostrarEstado();
-        guerrero.mostrarEstado();
+	        System.out.println("¡COMIENZA LA BATALLA EN LA ARENA JAVA!\n");
+	        
+	        ninja.mostrarEstado();
+	        guerrero.mostrarEstado();
 
-        int turno = 1;
-        while (ninja.estaVivo() && guerrero.estaVivo()) {
-            System.out.println("\n--- Turno " + turno + " ---");
+	        int turno = 1;
+	        while (ninja.estaVivo() && guerrero.estaVivo()) {
+	            double azar = Math.random();
+	            if (azar < 0.5) {
+	            	ninja.DisparoDoble(guerrero);
+	            }else {
+	            	
+	            }
+	            ninja.atacar(guerrero);
+	            
+	        while (ninja.estaVivo() && guerrero.estaVivo()) {
+		        double azar1 = Math.random();
+		        if (azar1 < 0.1) {
+		           ninja.Ataquecritico(guerrero);
+		        }else {
+		            	
+		            }
+		        ninja.atacar(guerrero);
+	        
+	            
+	           if(guerrero.estaVivo()) {
+	        	   guerrero.atacar(ninja);
+	           }
+	           ninja.mostrarEstado();
+	           guerrero.mostrarEstado();
 
-            if (turno % 2 == 0) {
-                ninja.dobleAtaque(guerrero);   // Habilidad especial cada 2 turnos
-            } else {
-                ninja.atacar(guerrero);
-            }
-
-            if (!guerrero.estaVivo()) break;
-
-            guerrero.atacar(ninja);
-
-            ninja.mostrarEstado();
-            guerrero.mostrarEstado();
-
-            turno++;
-        }
-
-        System.out.println(" GANADOR: " + 
-            (ninja.estaVivo() ? ninja.getNombre() : guerrero.getNombre()));
-    }
+             }
+	        if (ninja.estaVivo()) {
+	        	System.out.println("gano" + ninja.getNombre());
+	        }else { 
+	        	System.out.println("gano" + guerrero.getNombre());
+	        }
+	        }
+	        }
 }
